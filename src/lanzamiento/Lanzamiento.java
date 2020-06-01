@@ -1,7 +1,5 @@
 package lanzamiento;
 
-import java.util.Comparator;
-
 public class Lanzamiento implements Comparable<Lanzamiento>{
 	public double x;
 	public double y;
@@ -13,12 +11,12 @@ public class Lanzamiento implements Comparable<Lanzamiento>{
 		this.distOrigen = this.calcularDistOrige();
 	}
 	
-	public boolean isInside(double radius) {
-		return ( Math.sqrt( Math.pow( this.x - 0, 2 ) + Math.pow( this.y - 0, 2 ) ) <= radius );
-	}
-	
 	private double calcularDistOrige() {
 		return Math.sqrt( Math.pow( this.x - 0, 2 ) + Math.pow( this.y - 0, 2 ) ); 
+	}
+	
+	public boolean isInside(double radius) {
+		return ( this.calcularDistOrige() <= radius );
 	}
 
 	public double getX() {
